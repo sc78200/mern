@@ -1,10 +1,9 @@
 import mongoose from 'mongoose';
-import UserSchema from './models/userModels';
+import userSchema from './models/userModels';
 
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model('User', userSchema);
 
-export const getAll= async (req, res) => {
-  const users= await User.find().populate('message');
-
+export const getAll = async (req, res) => {
+  const users= await User.find(); //.populate('message');
   res.json(users);
 };

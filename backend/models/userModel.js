@@ -1,6 +1,6 @@
 import { Schema } from 'mongoose';
 
-const UserSchema = new Schema({
+const userSchema = new Schema({
   userName: {
     type: String,
     required: true
@@ -8,4 +8,4 @@ const UserSchema = new Schema({
   message: [{type: Schema.Types.ObjectId, ref: 'message'}]
 });
 
-export default UserSchema;
+export default userSchema;
