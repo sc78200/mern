@@ -5,7 +5,10 @@ const messageSchema = new Schema({
     type: String,
     required: true
   },
-  userName: { type: Schema.Type.objectId, ref: 'User' }
+  userName: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }
 });
 
 export default messageSchema;

@@ -1,11 +1,16 @@
 import { Schema } from 'mongoose';
 
-const userSchema = new Schema({
+const user = new Schema({
   userName: {
     type: String,
     required: true
   },
-  message: [{type: Schema.Types.ObjectId, ref: 'message'}]
+  messages: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Message'
+    }
+  ]
 });
 
-export default userSchema;
+export default user;
