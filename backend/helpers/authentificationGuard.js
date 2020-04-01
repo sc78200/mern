@@ -1,17 +1,13 @@
 import jwt from 'jwt-simple';
 import moment from 'moment';
 import Person from '../models/personModel';
-
 const ensureIsAuthentificated = (req, res, next) => {
-  // 1 - Check if authentification header is given
-  if (!req.headers.autoriation) {
+  if (!req.headers.authorization) {
     return res.status(401).send('token is missing');
   }
 
-  // 2 - Check if auth bearer
-  const token = req.headers.autoriation.split(' ')[1];
+  const token = req.headers.authorization.split(' ')[1];
 
-  // 2-1 Check if auth bearer is correct
   var payload = null;
   try {
     payload = jwt.decode(token, process.env.TOKEN_SECRET);
